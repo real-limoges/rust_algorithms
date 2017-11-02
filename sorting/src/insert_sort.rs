@@ -1,6 +1,18 @@
 pub fn insert_sort<T>(values: &mut [T])
     where T: Ord
 {
+    // Generic function for lists with types that can be ordered
+    // Standard insert_sort algorithm with constant memory and O(n^2) time
+    for i in 0..values.len() {
+        for j in (0..i).rev() {
+            if values[j] >= values[j+1] {
+                values.swap(j, j+1);
+            }
+            else {
+                break
+            }
+        }
+    }
 }
 
 #[test]
